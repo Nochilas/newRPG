@@ -33,6 +33,7 @@ namespace PGLib
         public PG(int str, int dex)
         {
             strength = str;
+            dexterity = dex;
         }
         
         public static PG GeneratePG()
