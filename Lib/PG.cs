@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CatLib
+namespace PGLib
 {
     class PG
     {
