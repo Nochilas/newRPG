@@ -2,46 +2,46 @@
 
 namespace PGLib
 {
-    class PG
+    public class PG
     {
-        private int strength;
-        public int Strength
+        private int str;
+        public int Str
         {
-            get { return strength; }
+            get { return str; }
             protected set
             {
                 if (value < 0)
                     throw new Exception("Strength can never be negative");
                 
-                strength = value;
+                str = value;
             }
         }
 
-        private int dexterity;
-        public int Dexterity
+        private int dex;
+        public int Dex
         {
-            get { return dexterity; }
+            get { return dex; }
             protected set
             {
                 if (value < 0)
                     throw new Exception("Dexterity can never be negative");
                 
-                dexterity = value;
+                dex = value;
             }
         }
 
-        public PG(int str, int dex)
+        public PG(int strr, int dexx)
         {
-            strength = str;
-            dexterity = dex;
+            Str = strr;
+            Dex = dexx;
         }
         
         public static PG GeneratePG()
         {
             Random rnd = new Random();
-            int strength = rnd.Next(8, 18);
-            int dexterity = rnd.Next(8, 18);
-            return new PG(strength, dexterity);
+            int str = rnd.Next(8, 18);
+            int dex = rnd.Next(8, 18);
+            return new PG(str, dex);
         }
 
     }
