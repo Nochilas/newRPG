@@ -7,10 +7,13 @@ namespace Cataclisma2
     {
         static void Main(string[] args)
         {
-            Bard Baard = new Bard(12, 15);
-
-            Console.WriteLine(Baard.Str);
-            Console.WriteLine(Baard.Dex);
+            PG pg;
+            pg = PG.GeneratePG();
+            
+            foreach(int c in pg.Characteristics)
+                Console.WriteLine(c);
+            
+            
         }
     }
 }
