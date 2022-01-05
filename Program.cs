@@ -12,8 +12,6 @@ namespace Cataclisma2
             
             foreach(int c in pg.Characteristics)
                 Console.WriteLine(c);
-            
-            
         }
     }
 }
