@@ -1,3 +1,3 @@
 # newRPG
 
-Add some description of the project here, bro.
+Simulates a RPG (generating characters etc.)
