@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PGLib
+namespace PGLib.Models
 {
     // The 7 chars of a given PG. Used in combination with indexers.
     // See Bard class for a couple of examples
@@ -19,10 +19,13 @@ namespace PGLib
     {
         #region Fields
 
-        public int[] Characteristics { get; protected set; } = new int[7];
+        public string Name { get; set; }
+
+        public int[] Characteristics { get; set; } = new int[7];
 
         // This is called indexer (it: indicizzatore). get and set functions
         // are mixed with lambda functions in order to take less writing effort
+        // Used to get a property of the object through an index like an array (ex. PG[1] or PG[Chars.Strength])
         public int this [int i]
         {
             get => Characteristics[i];

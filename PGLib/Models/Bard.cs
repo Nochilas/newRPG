@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PGLib
+namespace PGLib.Models
 {
     public class Bard : PG
     {
