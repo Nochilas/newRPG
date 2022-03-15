@@ -12,24 +12,20 @@ class Program
     {
         // Same Array.Sort(arr, new IComparerDerivedClass()) structure.
         // It sucks, but that's it folks
-        PG pg = PG.GeneratePG(new PG());
-        // Unboxing the PG since WE KNOW it's a Bard
-        //Bard b = PG.GeneratePG(new Bard()) as Bard;
+        PG pg = PG.GeneratePG("Pippo", new Bard(), new Dwarf());
         
-        pg.Name = "Pippo";
-
         foreach(int c in pg.Characteristics)
             Console.WriteLine(c);
         /*foreach(int c in b.Characteristics)
             Console.WriteLine(c);*/
         
-        JSONSerializer.Serialize(pg);
-        PG strama = JSONSerializer.Deserialize("Pippo");
+        // string path = JSONSerializer.Serialize();
+        // CharacterClass strama = JSONSerializer.Deserialize(path);
 
-        Console.WriteLine("-------");
+        // Console.WriteLine("-------");
 
-        foreach(int c in strama.Characteristics)
-            Console.WriteLine(c);
+        // foreach(int c in strama.Characteristics)
+        //     Console.WriteLine(c);
 
         //TODO: Create Nuget pack
         //Testing xUnit

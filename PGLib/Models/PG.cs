@@ -7,20 +7,22 @@ namespace PGLib.Models
     public enum Chars
     {
         Strength = 0,
-        Dexterity,
         Constitution,
         Size,
+        Dexterity,
         Intelligence,
         Power,
         Charisma
     }
-
     public class PG
     {
-        #region Fields
-
         public string Name { get; set; }
 
+        public CharacterClass CharClass { get; set; }
+
+        public CharacterRace CharRace { get; set; }
+
+        //Strenght, dexterity, constitution, size, intelligence, power, charisma
         public int[] Characteristics { get; set; } = new int[7];
 
         // This is called indexer (it: indicizzatore). get and set functions
@@ -37,40 +39,34 @@ namespace PGLib.Models
             protected set => Characteristics[(int)c] = value;
         }
 
-        #endregion
+        //Methods
+        // public PG(CharacterClass charClass, CharacterRace charRace, string name)
+        // {
+        //     CharClass = charClass;
+        //     CharRace = charRace;
+        //     Name = name;
+        // }
 
-        #region Methods
+        public PG()
+        {}
         
-        //TODO: Set chars to 0 'cause why not
-        public PG() {}
-
-        //Strenght, dexterity, constitution, size, intelligence, power, charisma
-        public PG(int[] charss)
-        {
-            for(int i = 0; i < Characteristics.Length; i++)
-                Characteristics[i] = charss[i];
-        }
-
-        // Derived classes use this function to generate a new PG as they want.
-        // This one simply randomizes chars
-        protected virtual PG Generate()
+        public static PG GeneratePG(string name, CharacterClass charClass, CharacterRace charRace)
         {
             Random rnd = new Random();
             int[] charss = new int[7];
 
             for(int i = 0; i < charss.Length; i++)
-                charss[i] = rnd.Next(8, 18);
+                charss[i] = rnd.Next(charRace.CharMin[i], charRace.CharMax[i]);
             
-            return new PG(charss);
-        }
+            //TODO: Write charClass bonus
 
-        // This function will use an instance of a derived class of PG class
-        // and use its Generate function. See main function for an example
-        public static PG GeneratePG(PG generator)
-        {
-            return generator.Generate();
+            return new PG()
+            {
+                Name = name,
+                CharClass = charClass,
+                CharRace = charRace,
+                Characteristics = charss
+            };
         }
-
-        #endregion
     }
 }
