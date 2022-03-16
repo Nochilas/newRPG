@@ -6,9 +6,9 @@ using PGLib.Models;
 namespace PGLib;
 public static class JSONSerializer
 {
-    public static string Serialize(CharacterClass pg)
+    public static string Serialize(PG pg)
     {
-        string jsonString = JsonSerializer.Serialize<CharacterClass>(pg);
+        string jsonString = JsonSerializer.Serialize<PG>(pg);
         string path = $"./data/{pg.Name}.json";
 
         StreamWriter sw = new StreamWriter(path);
@@ -17,13 +17,13 @@ public static class JSONSerializer
         return path;
     }
 
-    public static CharacterClass Deserialize(string path)
+    public static PG Deserialize(string path)
     {
         StreamReader sr = new StreamReader(path);
         string jsonString = sr.ReadLine();
         sr.Close();
         
-        CharacterClass pg = JsonSerializer.Deserialize<CharacterClass>(jsonString);
+        PG pg = JsonSerializer.Deserialize<PG>(jsonString);
         return pg;
     }
 }

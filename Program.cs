@@ -19,13 +19,13 @@ class Program
         /*foreach(int c in b.Characteristics)
             Console.WriteLine(c);*/
         
-        // string path = JSONSerializer.Serialize();
-        // CharacterClass strama = JSONSerializer.Deserialize(path);
+        string path = JSONSerializer.Serialize(pg);
+        PG strama = JSONSerializer.Deserialize(path);
 
-        // Console.WriteLine("-------");
+        Console.WriteLine("-------");
 
-        // foreach(int c in strama.Characteristics)
-        //     Console.WriteLine(c);
+        foreach(int c in strama.Characteristics)
+            Console.WriteLine(c);
 
         //TODO: Create Nuget pack
         //Testing xUnit
