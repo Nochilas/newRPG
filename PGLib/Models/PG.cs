@@ -47,9 +47,6 @@ namespace PGLib.Models
         //     Name = name;
         // }
 
-        public PG()
-        {}
-        
         public static PG GeneratePG(string name, CharacterClass charClass, CharacterRace charRace)
         {
             Random rnd = new Random();
